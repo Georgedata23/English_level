@@ -1,5 +1,5 @@
 import streamlit as st
-from srt_procesing import sub_processing
+from preprocessing import sub_preprocessing
 from catboost import CatBoostClassifier, Pool
 import pandas as pd
 import nltk
@@ -50,6 +50,6 @@ def make_predict(data, model):
 
 if upload_file:
     print(upload_file.name)
-    df = sub_processing(upload_file, df_words, df_idioms)
+    df = sub_preprocessing(upload_file, df_words, df_idioms)
     st.header(f'Данный фильм имеет уровень **{make_predict(df[features], model)}** :sunglasses: по классификации CEFR')
 
